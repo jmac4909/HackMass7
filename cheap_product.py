@@ -13,8 +13,12 @@ def getDriver(url,path):
 def findPrices(driver):
   prices_element = driver.find_elements_by_xpath("//*[contains(text(), '$')]")
   prices = [x.text for x in prices_element]
+  removeEmptyStr(prices)
   print(prices, '\n')
 
+def removeEmptyStr(price_list):
+  while("" in price_list):
+    price_list.remove("")
 
 # def getHtml(url):
 #   fp = urllib.request.urlopen(url)
@@ -31,15 +35,10 @@ def Google_search(query, start, stop):
       print(j)
   return results
 
-
-
 result = Google_search("hydroflask water bottle",1,2)
 driver = getDriver(result[0], driverPath)
 findPrices(driver)
 
 #print(result)
 ##print(html)
-
-
-
 #print(Google_search("water bottle", 1, 5))
