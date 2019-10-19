@@ -8,7 +8,8 @@ driverPath = "C:\\Users\\danzhang41\\Desktop\\Workspaces\\Hackathon\\HackUMass7\
 def getHTML(url,path):
   driver = webdriver.Chrome(path)
   driver.get(url)
-  
+  element = driver.find_element_by_class_name('a-offscreen')
+  print(element)
 
 # def getHtml(url):
 #   fp = urllib.request.urlopen(url)
