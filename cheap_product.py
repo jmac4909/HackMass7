@@ -8,8 +8,10 @@ driverPath = "C:\\Users\\danzhang41\\Desktop\\Workspaces\\Hackathon\\HackUMass7\
 def getHTML(url,path):
   driver = webdriver.Chrome(path)
   driver.get(url)
-  prices = driver.find_elements_by_xpath("//*[contains(text(), '$')]")
-  print(prices)
+  prices_element = driver.find_elements_by_xpath("//*[contains(text(), '$')]")
+  prices = [x.text for x in prices_element]
+  print(prices, '\n')
+
 
 # def getHtml(url):
 #   fp = urllib.request.urlopen(url)
