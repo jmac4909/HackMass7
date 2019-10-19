@@ -3,15 +3,18 @@ import urllib.request
 from googlesearch import search
 from selenium import webdriver
 
-driverPath = "C:\\Users\\danzhang41\\Desktop\\Workspaces\\Hackathon\\HackUMass7"
+driverPath = "C:\\Users\\danzhang41\\Desktop\\Workspaces\\Hackathon\\HackUMass7\\chromedriver.exe"
 
 def getHTML(url,path):
   driver = webdriver.Chrome(path)
-def getHtml(url):
-  fp = urllib.request.urlopen(url)
-  html = fp.read()
-  print(html)
-  return html
+  driver.get(url)
+  
+
+# def getHtml(url):
+#   fp = urllib.request.urlopen(url)
+#   html = fp.read()
+#   print(html)
+#   return html
 
 def Google_search(query, start, stop):
   #if you want to verify these, go to chrome incognito tab, search the query, then append &gl=us&pws=0 to the end of the
@@ -24,7 +27,8 @@ def Google_search(query, start, stop):
 
 
 
-#result = Google_search("water bottle",1,2)
+result = Google_search("water bottle",1,2)
+getHTML(result[0], driverPath)
 #print(result)
 ##print(html)
 
