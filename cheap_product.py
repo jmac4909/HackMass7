@@ -8,8 +8,8 @@ driverPath = "C:\\Users\\danzhang41\\Desktop\\Workspaces\\Hackathon\\HackUMass7\
 def getHTML(url,path):
   driver = webdriver.Chrome(path)
   driver.get(url)
-  element = driver.find_element_by_class_name('a-offscreen')
-  print(element)
+  prices = driver.find_elements_by_xpath("//*[contains(text(), '$')]")
+  print(prices)
 
 # def getHtml(url):
 #   fp = urllib.request.urlopen(url)
@@ -28,7 +28,7 @@ def Google_search(query, start, stop):
 
 
 
-result = Google_search("water bottle",1,2)
+result = Google_search("hydroflask water bottle",1,2)
 getHTML(result[0], driverPath)
 #print(result)
 ##print(html)
