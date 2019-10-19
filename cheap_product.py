@@ -5,9 +5,12 @@ from selenium import webdriver
 
 driverPath = "C:\\Users\\danzhang41\\Desktop\\Workspaces\\Hackathon\\HackUMass7\\chromedriver.exe"
 
-def getHTML(url,path):
+def getDriver(url,path):
   driver = webdriver.Chrome(path)
   driver.get(url)
+  return driver
+
+def findPrices(driver):
   prices_element = driver.find_elements_by_xpath("//*[contains(text(), '$')]")
   prices = [x.text for x in prices_element]
   print(prices, '\n')
@@ -31,7 +34,9 @@ def Google_search(query, start, stop):
 
 
 result = Google_search("hydroflask water bottle",1,2)
-getHTML(result[0], driverPath)
+driver = getDriver(result[0], driverPath)
+findPrices(driver)
+
 #print(result)
 ##print(html)
 
